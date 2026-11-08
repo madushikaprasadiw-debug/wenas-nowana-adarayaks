@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unchanging Love</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #21102e, #68416f, #d49bb3);
+  color: white;
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 35px 15px;
+}
+
+h1 {
+  font-size: clamp(25px, 6vw, 42px);
+  color: #ffe6f2;
+  text-shadow: 0 0 18px #ffb4db;
+}
+
+.subtitle {
+  color: #f8d8e8;
+  margin-bottom: 35px;
+}
+
+.scene {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  margin: 25px auto;
+}
+
+.cover {
+  width: min(75vw, 340px);
+  border-radius: 12px;
+  box-shadow: 0 25px 50px #160b20aa;
+  transition: transform 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.message {
+  max-width: 550px;
+  margin: 30px auto;
+  line-height: 2;
+  color: #fff0f7;
+}
+
+.butterfly {
+  position: fixed;
+  font-size: 25px;
+  pointer-events: none;
+  animation: fly 9s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fly {
+  0% { transform: translate(0, 100vh) rotate(0deg); }
+  100% { transform: translate(80px, -15vh) rotate(360deg); }
+}
+
+footer {
+  padding: 25px;
+  color: #f5d6e8;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="butterfly" style="left:10%; animation-delay:0s;">🦋</div>
+<div class="butterfly" style="left:80%; animation-delay:3s;">🦋</div>
+<div class="butterfly" style="left:45%; animation-delay:5s;">🦋</div>
+
+<div class="container">
+
+<h1>Unchanging Love</h1>
+<p class="subtitle">Some feelings never fade...</p>
+
+<div class="scene">
+  <img
+    src="cover.png"
+    alt="Unchanging Love පොත් කවරය"
+    class="cover"
+    id="cover">
+</div>
+
+<div class="message">
+  <p>
+    සමහර ආදර කතා කාලයත් සමඟ මැකී යන්නේ නැහැ.
+    ඒවා හදවතේ සදාකාලිකවම ජීවත් වෙනවා.
+  </p>
+  <p>Unchanging Love ❤️</p>
+</div>
+
+</div>
+
+<footer>
+W.A.D Nirmal Dhananjana
+</footer>
+
+<script>
+const cover = document.getElementById("cover");
+
+document.addEventListener("pointermove", (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 18;
+  const y = (e.clientY / window.innerHeight - 0.5) * -18;
+
+  cover.style.transform =
+    `rotateY(${x}deg) rotateX(${y}deg) scale(1.03)`;
+});
+
+document.addEventListener("pointerleave", () => {
+  cover.style.transform = "rotateY(0deg) rotateX(0deg)";
+});
+</script>
+
+</body>
+</html>
